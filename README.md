@@ -1,4 +1,4 @@
-# Template-For-Starting-Flask-App
+# Practice_with_request
 
-Template for start development with Flask.
+App working with telnet client and Flask-server
 
