@@ -1,0 +1,10 @@
+.table_record {
+	width: 600px;
+	margin-bottom: 20px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse;
+}
+.table_record td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+}
