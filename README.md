@@ -8,6 +8,11 @@ You need to install all the dependencies from the file "requirements.txt", after
 
 if you want changing default settings, you should edit file "settings.py", and restart app
 
+# Default settings
+
+PORT = '2002'
+HOST = '0.0.0.0'
+
 # Input data
 for telnet-client
 
