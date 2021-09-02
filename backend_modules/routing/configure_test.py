@@ -16,15 +16,18 @@ def index():
     return render_template('index.html')
 
 
-@application_routing.route('/add_info/<info>', methods=['GET', 'POST'])
+@application_routing.route('/add_info/<string:info>', methods=['GET', 'POST'])
 def add_info(info):
+    info = info.replace("\\x20", " ")
+    info = info.replace("\\x1B", "[")
+    print(info)
     data_to_view, group = CreatorInfo().create_output_data(info)
     if group is None:
-        return "Fail"
+        return {"Fail": 1}
     else:
         if logger.write_data_into_list(data_to_view, group) is not None:
             list_data_to_view.append(data_to_view)
-    return "Ok"
+    return {"Ok": 0}
 
 
 @application_routing.route('/get_info', methods=['GET', 'POST'])
