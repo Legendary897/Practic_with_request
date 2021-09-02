@@ -20,7 +20,6 @@ def index():
 def add_info(info):
     info = info.replace("\\x20", " ")
     info = info.replace("\\x1B", "[")
-    print(info)
     data_to_view, group = CreatorInfo().create_output_data(info)
     if group is None:
         return {"Fail": 1}
