@@ -6,7 +6,8 @@ from backend_modules.check.checker_list import CheckerParticipants
 application_routing = Blueprint("application_routing", __name__)
 
 log_file = "participants.txt"
-list_data_to_view = CheckerParticipants(log_file).init_list()
+logger = CheckerParticipants(log_file)
+list_data_to_view = logger.init_list()
 
 
 @application_routing.route('/')
@@ -21,9 +22,8 @@ def add_info(info):
     if group is None:
         return "Fail"
     else:
-        if group == "00":
+        if logger.write_data_into_list(data_to_view, group) is not None:
             list_data_to_view.append(data_to_view)
-        WriteData().write_data_into_file(data_to_view, group, log_file)
     return "Ok"
 
 
